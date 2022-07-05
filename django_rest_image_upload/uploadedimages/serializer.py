@@ -1,8 +1,13 @@
 from rest_framework import serializers
-from .models import Image
+from .models import UserImage
 
 
-class ImageSerializer(serializers.ModelSerializer):
+class UserImageSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Image
-        fields = ('pk', 'title', 'image')
+        model = UserImage
+        fields = ('pk', 'title', 'image', 'thumbnail')
+
+    # def get_thumb(self, obj):
+    #     if bool(obj.image):
+    #         return self.context['request'].build_absolute_uri(obj.image.url)
+    #     return ''
